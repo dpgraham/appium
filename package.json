@@ -73,7 +73,10 @@
     "precommit-test": "REPORTER=dot gulp once",
     "lint": "gulp eslint",
     "coverage": "gulp coveralls",
-    "generate-docs": "babel-node ./commands-yml/parse.js"
+    "generate-docs": "babel-node ./commands-yml/parse.js",
+    "zip": "zip -r appium.zip .",
+    "bintray:upload": "echo \"Stub: upload to bintray\"",
+    "bintray:publish": "echo \"Stub: publish to bintray\""
   },
   "pre-commit": [
     "precommit-msg",
