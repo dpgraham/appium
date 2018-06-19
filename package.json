@@ -74,9 +74,9 @@
     "lint": "gulp eslint",
     "coverage": "gulp coveralls",
     "generate-docs": "babel-node ./commands-yml/parse.js",
-    "zip": "zip -r appium.zip .",
-    "bintray:upload": "echo \"Stub: upload to bintray\"",
-    "bintray:publish": "echo \"Stub: publish to bintray\""
+    "zip": "zip -qr appium.zip .",
+    "upload": "babel-node ./scripts/bintray-upload.js",
+    "zip-and-upload": "npm run zip && npm run upload"
   },
   "pre-commit": [
     "precommit-msg",
