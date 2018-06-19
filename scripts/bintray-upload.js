@@ -17,17 +17,17 @@ let log = logger.getLogger('Bintray');
   const BINTRAY_URL = `https://bintray.com/api/v1`;
 
   // Version info
-  const COMMIT_SHA = process.env.TRAVIS_COMMIT || (Math.random() + "");
+  const BUILD_NAME = process.env.TRAVIS_TAG || process.env.TRAVIS_COMMIT || (Math.random() + "");
   const COMMIT_MESSAGE = process.env.TRAVIS_COMMIT_MESSAGE || 'Some message';
 
   // 1. Create a new 'version' that uses the commit SHA as the name
-  log.info(`Creating a new Bintray version: ${COMMIT_SHA}`);
+  log.info(`Creating a new Bintray version: ${BUILD_NAME}`);
   const postVersionUrl = `${BINTRAY_URL}/packages/${BINTRAY_SUBJECT}/${BINTRAY_REPO}/${BINTRAY_PACKAGE}/versions`;
   log.info(`Using Bintray REST API endpoint ${postVersionUrl}`);
   try {
     await request.post(postVersionUrl, {
       body: {
-        name: COMMIT_SHA,
+        name: BUILD_NAME,
         desc: COMMIT_MESSAGE,
       },
       json: true,
@@ -39,16 +39,16 @@ let log = logger.getLogger('Bintray');
   } catch (e) {
     // 409 means it was created already
     if (e.statusCode !== 409) {
-      log.error(`Failed to create new version ${COMMIT_SHA}. Reason: ${e.error.message}`);
+      log.error(`Failed to create new version ${BUILD_NAME}. Reason: ${e.error.message}`);
       process.exit(-1);
     } else {
-      log.info(`Version ${COMMIT_SHA} was already created. Continuing.`);
+      log.info(`Version ${BUILD_NAME} was already created. Continuing.`);
     }
   }
 
   // 2. Upload and publish Appium.zip to Bintray
-  log.info(`Uploading 'appium.zip' to bintray at version ${COMMIT_SHA}`);
-  const uploadZipUrl = `${BINTRAY_URL}/content/${BINTRAY_SUBJECT}/${BINTRAY_REPO}/${BINTRAY_PACKAGE}/${COMMIT_SHA}/appium-${COMMIT_SHA}.zip?publish=1&override=1`;
+  log.info(`Uploading 'appium.zip' to bintray at version ${BUILD_NAME}`);
+  const uploadZipUrl = `${BINTRAY_URL}/content/${BINTRAY_SUBJECT}/${BINTRAY_REPO}/${BINTRAY_PACKAGE}/${BUILD_NAME}/appium-${BUILD_NAME}.zip?publish=1&override=1`;
   log.info(`Using Bintray REST API upload endpoint ${uploadZipUrl}`);
   try {
     await request.put(uploadZipUrl, {
@@ -70,10 +70,10 @@ let log = logger.getLogger('Bintray');
     if (e.statusCode !== 409) {
       log.error(`Skipped upload. Upload is already available`);
     } else {
-      log.error(`Failed to publish 'appium.zip' to ${COMMIT_SHA}. Reason: ${JSON.stringify(e)}`);
+      log.error(`Failed to publish 'appium.zip' to ${BUILD_NAME}. Reason: ${JSON.stringify(e)}`);
       process.exit(-1);
     }
   }
-  log.info(`Done publishing 'appium.zip' to ${COMMIT_SHA}`);
+  log.info(`Done publishing 'appium.zip' to ${BUILD_NAME}`);
 
 })();
