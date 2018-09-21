@@ -111,6 +111,7 @@
     "gulp": "^4.0.0",
     "handlebars": "^4.0.10",
     "mocha": "5.x",
+    "lerna": "^3.4.0",
     "pre-commit": "1.x",
     "release": "^4.0.2",
     "replace-ext": "^1.0.0",
