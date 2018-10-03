@@ -43,7 +43,6 @@ class AppiumDriver extends BaseDriver {
   }
 
   addAutomationDriver (driverName, driverClass) {
-    console.log('@@@@@adding', driverName, driverClass);
     this.automations[driverName] = driverClass;
   }
 

@@ -28,6 +28,7 @@ org.eclipse.ltk.core.refactoring.prefs
 /selendroid
 .appiumconfig*
 build/
+**/build/
 .idea
 *DerivedData
 __pycache__

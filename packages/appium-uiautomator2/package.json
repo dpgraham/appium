@@ -1,0 +1,20 @@
+{
+  "name": "appium-uiautomator2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp transpile",
+    "publish": "gulp prepublish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "appium-builder": "file:../appium-builder",
+    "appium-uiautomator2-driver": "^1.21.1"
+  },
+  "devDependencies": {
+    "appium-gulp-plugins": "^3.1.0"
+  }
+}
