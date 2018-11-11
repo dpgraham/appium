@@ -39,6 +39,8 @@
     "build/lib"
   ],
   "dependencies": {
+    "jquery": "^3.3.1",
+    "package2": "^1.0.0"
   },
   "scripts": {
     "prepare": "gulp prepublish",

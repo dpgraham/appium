@@ -1,0 +1,15 @@
+{
+  "name": "appium-drivers",
+  "version": "0.0.0",
+  "description": "Local storage of Appium Drivers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "appium-xcuitest-driver": "^2.99.0",
+    "jquery": "^3.3.1"
+  }
+}
