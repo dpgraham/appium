@@ -1,6 +1,6 @@
 {
-  "name": "appium-cli",
-  "version": "0.0.0",
+  "name": "appium",
+  "version": "2.0.0",
   "author": "dpgraham @dpgraham",
   "bin": {
     "appium": "./bin/run"
