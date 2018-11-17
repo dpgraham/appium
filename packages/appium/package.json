@@ -10,13 +10,32 @@
     "@oclif/command": "^1.5.4",
     "@oclif/config": "^1.9.0",
     "@oclif/plugin-help": "^2.1.3",
+    "appium-base-driver": "^3.11.1",
     "appium-support": "^2.11.2",
+    "argparse": "1.x",
+    "async-lock": "^1.0.0",
+    "asyncbox": "^2.5.2",
+    "babel-runtime": "=5.8.24",
     "bluebird": "^3.5.3",
-    "teen_process": "^1.14.0"
+    "continuation-local-storage": "3.x",
+    "dateformat": "^2.0.0",
+    "fkill": "^5.2.0",
+    "lodash": "4.x",
+    "npmlog": "2.x",
+    "request": "^2.81.0",
+    "request-promise": "1.x",
+    "source-map-support": "0.x",
+    "teen_process": "^1.14.0",
+    "winston": "^2.4.4"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.19.4",
     "appium-gulp-plugins": "^3.1.5",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-config-appium": "3.x",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-promise": "^4.0.0",
     "globby": "^8.0.1"
   },
   "engines": {

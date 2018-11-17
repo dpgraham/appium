@@ -5,4 +5,7 @@
 /tmp
 /yarn.lock
 node_modules
+appium-drivers/drivers.json
+appium-drivers/package.json
+appium-drivers/yarn.lock
 

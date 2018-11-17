@@ -1,5 +1,5 @@
 import npmlog from 'npmlog';
-import winston  from 'winston';
+import winston from 'winston';
 import { fs, logger } from 'appium-support';
 import dateformat from 'dateformat';
 import _ from 'lodash';

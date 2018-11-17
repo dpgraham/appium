@@ -1,0 +1,13 @@
+{
+  "name": "appium-drivers",
+  "version": "0.0.0",
+  "description": "Locally stores Appium Drivers. Does not get published.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No teests\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

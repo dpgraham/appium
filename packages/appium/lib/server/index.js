@@ -101,7 +101,6 @@ class AppiumBuilder {
   }
 
   withAutomation (automationName, automationDriver) {
-    //this.appium.addAutomationDriver(automationName, automationDriver);
     this.automations[automationName.toLowerCase()] = automationDriver;
     return this;
   }

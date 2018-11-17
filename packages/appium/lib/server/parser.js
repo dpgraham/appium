@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 import { ArgumentParser } from 'argparse';
-import pkgObj from '../../package.json';  // eslint-disable-line import/no-unresolved
+import pkgObj from '../../../package.json';  // eslint-disable-line import/no-unresolved
 
 
 const args = [

@@ -4,6 +4,7 @@ import { getAppiumConfig } from './config';
 import { BaseDriver, routeConfiguringFunction, errors,
          isSessionCommand, processCapabilities } from 'appium-base-driver';
 import B from 'bluebird';
+import path from 'path';
 import AsyncLock from 'async-lock';
 import { inspectObject } from './utils';
 
@@ -43,6 +44,7 @@ class AppiumDriver extends BaseDriver {
   }
 
   addAutomationDriver (driverName, driverClass) {
+    log.info(`Adding driver: ${driverName}`);
     this.automations[driverName] = driverClass;
   }
 
@@ -64,79 +66,18 @@ class AppiumDriver extends BaseDriver {
 
     // we don't necessarily have an `automationName` capability,
     if (caps.automationName) {
-      /*if (caps.automationName.toLowerCase() === 'selendroid') {
-        // but if we do and it is 'Selendroid', act on it
-        return SelendroidDriver;
-      } else if (caps.automationName.toLowerCase() === 'uiautomator2') {
-        // but if we do and it is 'Uiautomator2', act on it
-        return AndroidUiautomator2Driver;
-      } else if (caps.automationName.toLowerCase() === 'xcuitest') {
-        // but if we do and it is 'XCUITest', act on it
-        return XCUITestDriver;
-      } else if (caps.automationName.toLowerCase() === 'youiengine') {
-        // but if we do and it is 'YouiEngine', act on it
-        return YouiEngineDriver;
-      } else if (caps.automationName.toLowerCase() === 'espresso') {
-        log.warn('The Appium Espresso driver is currently in early beta and meant only for experimental usage. Its API is not yet complete or guaranteed to work. Please report bugs to the Appium team on GitHub.');
-        return EspressoDriver;
-      }*/
-
       const matchingDriver = this.automations[caps.automationName.toLowerCase()];
       if (matchingDriver) {
         return matchingDriver;
       }
     }
 
-    if (caps.platformName.toLowerCase() === "fake") {
-      //return FakeDriver;
-      if (this.automations.fake) {
-        return this.automations.fake;
-      }
-    }
-
-    if (caps.platformName.toLowerCase() === 'android') {
-      //return AndroidDriver;
-      if (this.automations.android) {
-        return this.automations.android;
-      }
-    }
-
-    if (caps.platformName.toLowerCase() === 'ios') {
-      if (caps.platformVersion) {
-        let majorVer = caps.platformVersion.toString().split(".")[0];
-        if (this.automations.xcuitest && parseInt(majorVer, 10) >= 10) {
-          log.info("Requested iOS support with version >= 10, using XCUITest " +
-                   "driver instead of UIAutomation-based driver, since the " +
-                   "latter is unsupported on iOS 10 and up.");
-
-          this.automations.xcuitest;
-        }
-      }
-
-      //return IosDriver;
-      if (this.automations.ios) {
-        return this.automations.ios;
-      }
-    }
-
-    if (caps.platformName.toLowerCase() === 'windows') {
-      //return WindowsDriver;
-      if (this.automations.windows) {
-        return this.automations.windows;
-      }
-    }
-
-    if (caps.platformName.toLowerCase() === 'mac') {
-      //return MacDriver;
-      if (this.automations.mac) {
-        return this.automations.mac;
-      }
-    }
-
     let msg;
     if (caps.automationName) {
       msg = `Could not find a driver for automationName '${caps.automationName}' and platformName ` +
-            `'${caps.platformName}'.`;
+            `'${caps.platformName}'.` +
+            `. Available drivers: [${_.keys(this.automations).join(', ')}]`;
+
     } else {
       msg = `Could not find a driver for platformName '${caps.platformName}'.`;
     }
@@ -144,7 +85,9 @@ class AppiumDriver extends BaseDriver {
   }
 
   getDriverVersion (driver) {
-    const NAME_DRIVER_MAP = {
+    return;
+    // TODO: Update this logic
+    /*const NAME_DRIVER_MAP = {
       SelendroidDriver: 'appium-selendroid-driver',
       AndroidUiautomator2Driver: 'appium-uiautomator2-driver',
       XCUITestDriver: 'appium-xcuitest-driver',
@@ -159,8 +102,8 @@ class AppiumDriver extends BaseDriver {
       log.warn(`Unable to get version of driver '${driver.name}'`);
       return;
     }
-    let {version} = require(`${NAME_DRIVER_MAP[driver.name]}/package.json`);
-    return version;
+    let {version} = require(path.resolve('appium-drivers', 'node_modules', NAME_DRIVER_MAP[driver.name], 'package.json'));
+    return version;*/
   }
 
   async getStatus () {

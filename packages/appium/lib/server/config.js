@@ -3,7 +3,7 @@ import path from 'path';
 import { mkdirp, fs } from 'appium-support';
 import { exec } from 'teen_process';
 import logger from './logger';
-import pkgObj from '../../package.json'; // eslint-disable-line import/no-unresolved
+import pkgObj from '../../../package.json'; // eslint-disable-line import/no-unresolved
 
 
 const APPIUM_VER = pkgObj.version;
