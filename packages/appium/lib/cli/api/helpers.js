@@ -53,12 +53,8 @@ helpers.getInstallCommand = function (driverName, source) {
 };
 
 helpers.checkDriversDirIsReady = async function () {
-  if (!await fs.exists(helpers.driversJsonPath)) {
-    await fs.writeFile(helpers.driversJsonPath, JSON.stringify({}), "utf8");
-  }
-  if (!await fs.exists()) {
-    const packageJsonBase = path.resolve(helpers.appiumDriversPath, 'package-base.json');
-    await fs.copyFile(packageJsonBase, helpers.packageJsonPath);
+  if (!await fs.exists(helpers.appiumDriversPath)) {
+    await fs.copyFile(helpers.appiumDriversBasePath, helpers.appiumDriversPath);
   }
 };
 
@@ -75,6 +71,7 @@ helpers.getLogger = function (verbose) {
 }
 
 helpers.appiumDriversPath = path.resolve('appium-drivers');
+helpers.appiumDriversBasePath = path.resolve('appium-drivers-base');
 helpers.driversJsonPath = path.resolve(helpers.appiumDriversPath, 'drivers.json');
 helpers.packageJsonPath = path.resolve(helpers.appiumDriversPath, 'package.json');
 
