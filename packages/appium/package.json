@@ -26,7 +26,8 @@
     "request-promise": "1.x",
     "source-map-support": "0.x",
     "teen_process": "^1.14.0",
-    "winston": "^2.4.4"
+    "winston": "^2.4.4",
+    "yarn": "^1.12.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.19.4",

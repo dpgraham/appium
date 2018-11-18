@@ -1,8 +1,6 @@
 import path from 'path';
 import helpers from './helpers';
-import { fs, logger } from 'appium-support';
-
-const log = logger.getLogger('Appium');
+import { fs } from 'appium-support';
 
 const api = {};
 

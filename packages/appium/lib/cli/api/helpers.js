@@ -9,10 +9,12 @@ const log = logger.getLogger('Appium');
 
 const helpers = {};
 
+const yarnBinaryPath = path.resolve('node_modules', '.bin', 'yarn');
+
 helpers.execYarn = async function (commandArgs, verbose) {
   return await new B(async (resolve, reject) => {
     const log = helpers.getLogger(verbose);
-    const yarnProcess = await new SubProcess('yarn', [...commandArgs, "--production"], {cwd: helpers.appiumDriversPath});
+    const yarnProcess = await new SubProcess(yarnBinaryPath, [...commandArgs, "--production"], {cwd: helpers.appiumDriversPath});
     verbose && yarnProcess.on('output', (stdout, stderr) => {
       if (stdout) {
         log.info(stdout);
