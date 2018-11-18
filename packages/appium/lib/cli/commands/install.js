@@ -1,5 +1,5 @@
 import { Command, flags as Flags } from '@oclif/command';
-import { install } from '../api';
+import api from '../api';
 
 class Install extends Command {
   async run () {
@@ -13,7 +13,7 @@ class Install extends Command {
 
     this.log(`Installing Appium driver: "${pkg}"${source ? ` from source ${source}` : ""}`);
     try {
-      await install(args.package, source, flags.verbose);
+      await api.install(args.package, source, flags.verbose);
       this.log(`Successfully installed Appium Driver: "${args.package}"`);
     } catch (e) {
       if (!flags.verbose) {
