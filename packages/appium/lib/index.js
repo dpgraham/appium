@@ -11,7 +11,8 @@ import _ from 'lodash';
 async function main (args = null) {
   const drivers = require(path.resolve('./appium-drivers/drivers.json'));
   const builder = new AppiumBuilder();
-  for (let [name, packageName] of _.toPairs(drivers)) {
+  for (let [name, packageInfo] of _.toPairs(drivers)) {
+    const packageName = packageInfo.package;
     const driver = require(path.resolve('appium-drivers', 'node_modules', packageName)).default;
     builder.withAutomation(name, driver);
   }
