@@ -1,6 +1,7 @@
 import path from 'path';
 import helpers from './helpers';
 import { fs } from 'appium-support';
+import jsonFormat from 'json-format';
 
 const api = {};
 
@@ -19,7 +20,7 @@ api.install = async function (driverName, source, verbose) {
     package: pkg,
     source,
   };
-  await fs.writeFile(helpers.driversJsonPath, JSON.stringify(installedDrivers));
+  await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
   await helpers.execYarn(['add', pkg], verbose);
 };
 
