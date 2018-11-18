@@ -12,20 +12,30 @@ class Install extends Command {
     if (flags.file) { source = 'file'; }
 
     this.log(`Installing Appium driver: "${pkg}"${source ? ` from source ${source}` : ""}`);
-    await install(args.package, source);
-    this.log(`Successfully installed Appium Driver: "${args.package}"`);
+    try {
+      await install(args.package, source, flags.verbose);
+      this.log(`Successfully installed Appium Driver: "${args.package}"`);
+    } catch (e) {
+      if (!flags.verbose) {
+        this.log(`For more detailed logs, add the --verbose flag`);
+      }
+      this.error(e);
+    }
   }
 }
 
 Install.description = `Installs an Appium driver
 ...
-Extra documentation goes here
+Install an Appium Driver from a list of supported drivers.
+
+Or install an Appium Driver from npm, git or local folder
 `;
 
 Install.flags = {
   git: Flags.boolean({description: 'Install an Appium driver from a git repository'}),
   npm: Flags.boolean({description: 'Install an Appium driver from an NPM repository'}),
   file: Flags.boolean({description: 'Install an Appium driver from a local directory'}),
+  verbose: Flags.boolean({description: 'Show full logs'}),
 };
 
 Install.args = [
