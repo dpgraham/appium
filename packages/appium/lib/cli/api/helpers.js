@@ -11,6 +11,7 @@ const helpers = {};
 
 helpers.execYarn = async function (commandArgs, verbose) {
   return await new B(async (resolve, reject) => {
+    const log = helpers.getLogger(verbose);
     const yarnProcess = await new SubProcess('yarn', [...commandArgs, "--production"], {cwd: helpers.appiumDriversPath});
     verbose && yarnProcess.on('output', (stdout, stderr) => {
       if (stdout) {
@@ -59,6 +60,18 @@ helpers.checkDriversDirIsReady = async function () {
     const packageJsonBase = path.resolve(helpers.appiumDriversPath, 'package-base.json');
     await fs.copyFile(packageJsonBase, helpers.packageJsonPath);
   }
+};
+
+helpers.getLogger = function (verbose) {
+  if (verbose) {
+    return logger.getLogger('Appium');
+  }
+
+  return {
+    info: _.noop,
+    error: _.noop,
+    warn: _.noop,
+  };
 }
 
 helpers.appiumDriversPath = path.resolve('appium-drivers');

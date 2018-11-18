@@ -28,7 +28,8 @@ api.install = async function (driverName, source, verbose) {
 /**
  * Uninstall all Appium drivers
  */
-api.clean = async function () {
+api.clean = async function (verbose) {
+  const log = helpers.getLogger(verbose);
   log.info(`Removing all drivers`);
   await fs.rimraf(path.resolve(helpers.appiumDriversPath, 'node_modules'));
   await fs.rimraf(helpers.driversJsonPath);
