@@ -9,7 +9,7 @@ import AppiumBuilder from './server';
 import _ from 'lodash';
 
 async function main (args = null) {
-  const drivers = require(path.resolve('./appium-drivers/drivers.json'));
+  const drivers = require(path.resolve('appium-drivers', 'drivers.json'));
   const builder = new AppiumBuilder();
   for (let [name, packageInfo] of _.toPairs(drivers)) {
     const packageName = packageInfo.package;

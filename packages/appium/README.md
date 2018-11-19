@@ -15,11 +15,11 @@ appium-cli
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g appium-cli
+$ npm install -g appium
 $ appium COMMAND
 running command...
 $ appium (-v|--version|version)
-appium-cli/0.0.0 darwin-x64 node-v10.11.0
+appium/2.0.0 darwin-x64 node-v10.11.0
 $ appium --help [COMMAND]
 USAGE
   $ appium COMMAND
@@ -28,9 +28,23 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`appium clean`](#appium-clean)
 * [`appium help [COMMAND]`](#appium-help-command)
-* [`appium install`](#appium-install)
-* [`appium uninstall`](#appium-uninstall)
+* [`appium install PACKAGE`](#appium-install-package)
+
+## `appium clean`
+
+Removes all Appium drivers
+
+```
+USAGE
+  $ appium clean
+
+OPTIONS
+  --verbose  Show full logs
+```
+
+_See code: [build/lib/cli/commands/clean.js](https://github.com/appium/appium/blob/v2.0.0/build/lib/cli/commands/clean.js)_
 
 ## `appium help [COMMAND]`
 
@@ -49,39 +63,30 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.3/src/commands/help.ts)_
 
-## `appium install`
+## `appium install PACKAGE`
 
-Describe the command here
-
-```
-USAGE
-  $ appium install
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src/commands/install.js](https://github.com/appium/appium/blob/v0.0.0/src/commands/install.js)_
-
-## `appium uninstall`
-
-Describe the command here
+Installs an Appium driver
 
 ```
 USAGE
-  $ appium uninstall
+  $ appium install PACKAGE
 
 OPTIONS
-  -n, --name=name  name to print
+  --file     Install an Appium driver from a local directory
+  --git      Install an Appium driver from a git repository
+  --npm      Install an Appium driver from an NPM repository
+  --verbose  Show full logs
 
 DESCRIPTION
   ...
-  Extra documentation goes here
+  Install an Appium Driver from a list of supported drivers.
+
+  Or install an Appium Driver from npm, git or local folder
 ```
 
-_See code: [src/commands/uninstall.js](https://github.com/appium/appium/blob/v0.0.0/src/commands/uninstall.js)_
+_See code: [build/lib/cli/commands/install.js](https://github.com/appium/appium/blob/v2.0.0/build/lib/cli/commands/install.js)_
 <!-- commandsstop -->
+
+## Dev
+
+* To run CLI commands locally, replace `appium` with `./bin/run` (e.g.: instead of `appium install xcuitest`, use `./bin/run install xcuitest`)
