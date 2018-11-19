@@ -5,11 +5,11 @@ export default {
   "uiautomation": {
     "package": "appium-ios-driver"
   },
-  "uiauatomator2": {
-    "package": "appium-uiauatomator2-driver"
+  "uiautomator2": {
+    "package": "appium-uiautomator2-driver"
   },
   "espresso": {
-    "package": "appium-youengine-driver"
+    "package": "appium-espresso-driver"
   },
   "uiautomator1": {
     "package": "appium-youengine-driver"
@@ -22,5 +22,8 @@ export default {
   },
   "tizen": {
     "package": "appium-tizen-driver"
-  }
+  },
+  "youiengine": {
+    "package": "appium-youiengine-driver"
+  },
 };
