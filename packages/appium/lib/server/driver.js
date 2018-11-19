@@ -44,7 +44,7 @@ class AppiumDriver extends BaseDriver {
   }
 
   addAutomationDriver (driverName, driverClass) {
-    log.info(`Adding driver: ${driverName}`);
+    log.info(`Using driver: ${driverName}`);
     this.automations[driverName] = driverClass;
   }
 
