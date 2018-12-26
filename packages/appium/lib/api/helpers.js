@@ -70,7 +70,7 @@ helpers.getLogger = function (verbose) {
     error: _.noop,
     warn: _.noop,
   };
-}
+};
 
 helpers.appiumDriversPath = path.resolve('appium-drivers');
 helpers.appiumDriversBasePath = path.resolve('appium-drivers-base');
