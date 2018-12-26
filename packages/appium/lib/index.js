@@ -5,7 +5,7 @@ module.exports = require('@oclif/command');
 
 import { asyncify } from 'asyncbox';
 import path from 'path';
-import AppiumBuilder from './server';
+import AppiumBuilder from '@appium/builder';
 import _ from 'lodash';
 
 async function main (args = null) {

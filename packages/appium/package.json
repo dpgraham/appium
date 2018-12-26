@@ -7,6 +7,7 @@
   },
   "bugs": "https://github.com/appium/appium/issues",
   "dependencies": {
+    "@appium/builder": "file:../builder",
     "@oclif/command": "^1.5.4",
     "@oclif/config": "^1.9.0",
     "@oclif/plugin-help": "^2.1.3",
