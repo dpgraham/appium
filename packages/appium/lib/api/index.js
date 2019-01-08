@@ -23,38 +23,60 @@ class API {
    */
   async install (driverName, source) {
     await helpers.checkDriversDirIsReady();
-    driverName = driverName.toLowerCase();
 
     let npmInstallationCommand;
+    let automationName = 'unknown';
+    let version;
+
     if (_.isUndefined(source)) {
       const appiumDriver = supportedDrivers[driverName];
       if (!appiumDriver) {
         this.errorAndThrow(`Could not find driver '${driverName}' in the registry. Supported drivers are: [${_.keys(supportedDrivers).join(', ')}]`);
       }
       npmInstallationCommand = appiumDriver.package;
+      automationName = driverName;
       this.logger.info(`Found driver '${appiumDriver.package}'`);
     } else {
       source = source.toLowerCase();
       if (source === 'git') {
+        // Install as git package repository
         npmInstallationCommand = `git://${driverName}`;
+        // TODO: Have it download the package.json and read the contents so we can save the automationName
       } else if (source === 'file') {
+        // Install as local NPM package
+        if (!await fs.exists(path.resolve(driverName, 'package.json'))) {
+          this.errorAndThrow(`Could not find npm package at local path '${driverName}'`);
+        }
         npmInstallationCommand = `file://${driverName}`;
+        automationName = require(path.resolve(path.resolve(driverName, 'package.json'))).name;
       } else if (source === 'npm') {
-        npmInstallationCommand = driverName;
+        // Install as NPM package
+        try {
+          const res = await helpers.execYarnJSON(['info', driverName]);
+          const name = res.data.name;
+          npmInstallationCommand = name;
+          automationName = name;
+        } catch (e) {
+          this.logger.error(e.message);
+          this.errorAndThrow(`Could not find npm package '${driverName}'`);
+        }
       } else {
         this.errorAndThrow(`Unknown source type '${source}'. Supported source types are: [git, file, npm]`);
       }
     }
 
+    // Install the package
     this.logger.info(`Installing '${npmInstallationCommand}' via npm`);
     await this.execYarn(['add', npmInstallationCommand]);
+
+    // Save this to our list of installed drivers
     const installedDrivers = this.getInstalledDrivers();
-    installedDrivers[driverName] = {
-      package: npmInstallationCommand,
+    installedDrivers[automationName] = {
+      packageName: npmInstallationCommand,
       source,
     };
     await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
-    this.logger.info(`Installation successful. '${driverName}' is now available via automationName '${driverName}`);
+    this.logger.info(`Installation successful. '${driverName}' is now available via automationName '${automationName}'`);
   }
 
   /**

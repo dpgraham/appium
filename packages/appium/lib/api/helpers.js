@@ -12,22 +12,30 @@ helpers.execYarn = async function (commandArgs, verbose) {
   return await new B(async (resolve, reject) => {
     const log = helpers.getLogger(verbose);
     const yarnProcess = await new SubProcess(yarnBinaryPath, [...commandArgs, "--production"], {cwd: helpers.appiumDriversPath});
-    verbose && yarnProcess.on('output', (stdout, stderr) => {
-      if (stdout) {
-        log.info(stdout);
-      } else if (stderr) {
-        log.error(stderr);
+    let output = null;
+    yarnProcess.on('output', (stdout, stderr) => {
+      output = stdout;
+      if (verbose) {
+        if (stdout) {
+          log.info(stdout);
+        } else if (stderr) {
+          log.error(stderr);
+        }
       }
     });
     yarnProcess.on('exit', (code) => {
       if (code === 0) {
-        resolve();
+        resolve(output);
       } else {
         reject(`Could not complete command. An error has occurred.`);
       }
     });
     await yarnProcess.start();
   });
+};
+
+helpers.execYarnJSON = async function (commandArgs) {
+  return JSON.parse(await helpers.execYarn([...commandArgs, '--json'], false));
 };
 
 helpers.checkDriversDirIsReady = async function () {
