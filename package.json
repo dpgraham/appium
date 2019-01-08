@@ -62,5 +62,6 @@
   },
   "greenkeeper": {
     "ignore": []
-  }
+  },
+  "name": "appium"
 }
