@@ -60,6 +60,12 @@ helpers.checkDriversDirIsReady = async function () {
   }
 };
 
+helpers.silentLogger = {
+  info: _.noop,
+  error: _.noop,
+  warn: _.noop,
+};
+
 helpers.getLogger = function (verbose) {
   if (verbose) {
     return logger.getLogger('Appium');

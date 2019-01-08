@@ -1,10 +1,19 @@
 import { Command, flags as Flags } from '@oclif/command';
-import api from '../api';
+import AppiumAPI from '../api';
 
 class BaseCommand extends Command {
   async runCommand (commandName, commandArgs, flags) {
-    // TODO: Handle the 'verbose' case here
-    const res = await api[commandName].apply(null, commandArgs);
+    const oclifLogger = {
+      info: this.log,
+      error: this.error,
+      warn: this.warn,
+    };
+    const api = new AppiumAPI({
+      verbose: flags.verbose,
+      logger: oclifLogger,
+    });
+    // TODO: Add mutex before and after this to prevent clashes
+    const res = await api[commandName].apply(api, commandArgs);
     if (flags.json) {
       return res;
     }

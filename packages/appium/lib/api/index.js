@@ -1,42 +1,50 @@
+import { fs } from 'appium-support';
 import path from 'path';
 import helpers from './helpers';
-import { fs } from 'appium-support';
 import jsonFormat from 'json-format';
 
-const api = {};
+class API {
+  constructor ({verbose, logger}) {
+    this.verbose = !!verbose;
+    this.logger = logger || helpers.silentLogger;
+  }
 
-/**
- * Install an Appium Driver
- *
- * @param  {String} driverName The name of the driver to install
- * @param  {String} source Where to install from. If empty, installs from Appium approved drivers list. Can be `npm`, `git` or `file`.
- * @param  {boolean} verbose If true, show complete Appium logs
- */
-api.install = async function (driverName, source, verbose) {
-  await helpers.checkDriversDirIsReady();
-  const installedDrivers = api.getInstalledDrivers();
-  const pkg = helpers.getInstallCommand(driverName.toLowerCase(), source);
-  installedDrivers[driverName] = {
-    package: pkg,
-    source,
-  };
-  await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
-  await helpers.execYarn(['add', pkg], verbose);
-};
+  async execYarn (...args) {
+    return await helpers.execYarn.apply(null, [...args, this.verbose]);
+  }
 
-/**
- * Uninstall all Appium drivers
- */
-api.clean = async function (verbose) {
-  const log = helpers.getLogger(verbose);
-  log.info(`Removing all drivers`);
-  await fs.rimraf(path.resolve(helpers.appiumDriversPath));
-  await fs.copyFile(helpers.appiumDriversBasePath, helpers.appiumDriversPath);
-  log.info(`Drivers successfully removed`);
-};
+  /**
+   * Install an Appium Driver
+   *
+   * @param  {String} driverName The name of the driver to install
+   * @param  {String} source Where to install from. If empty, installs from Appium approved drivers list. Can be `npm`, `git` or `file`.
+   */
+  async install (driverName, source) {
+    await helpers.checkDriversDirIsReady();
+    const installedDrivers = this.getInstalledDrivers();
+    const pkg = helpers.getInstallCommand(driverName.toLowerCase(), source);
+    installedDrivers[driverName] = {
+      package: pkg,
+      source,
+    };
+    await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
+    this.logger.info(`Installing package: ${pkg}`);
+    await this.execYarn(['add', pkg]);
+  }
 
-api.getInstalledDrivers = function () {
-  return require(helpers.driversJsonPath);
-};
+  /**
+   * Uninstall all Appium drivers
+   */
+  async clean () {
+    this.logger.info(`Removing all drivers`);
+    await fs.rimraf(path.resolve(helpers.appiumDriversPath));
+    await fs.copyFile(helpers.appiumDriversBasePath, helpers.appiumDriversPath);
+    this.logger.info(`Drivers successfully removed`);
+  }
 
-export default api;
+  getInstalledDrivers () {
+    return require(helpers.driversJsonPath);
+  }
+}
+
+export default API;
