@@ -2,6 +2,8 @@ import { fs } from 'appium-support';
 import path from 'path';
 import helpers from './helpers';
 import jsonFormat from 'json-format';
+import supportedDrivers from '../supported-drivers';
+import _ from 'lodash';
 
 class API {
   constructor ({verbose, logger}) {
@@ -21,25 +23,53 @@ class API {
    */
   async install (driverName, source) {
     await helpers.checkDriversDirIsReady();
+    driverName = driverName.toLowerCase();
+
+    let npmInstallationCommand;
+    if (_.isUndefined(source)) {
+      const appiumDriver = supportedDrivers[driverName];
+      if (!appiumDriver) {
+        this.errorAndThrow(`Could not find driver '${driverName}' in the registry. Supported drivers are: [${_.keys(supportedDrivers).join(', ')}]`);
+      }
+      npmInstallationCommand = appiumDriver.package;
+      this.logger.info(`Found driver '${appiumDriver.package}'`);
+    } else {
+      source = source.toLowerCase();
+      if (source === 'git') {
+        npmInstallationCommand = `git://${driverName}`;
+      } else if (source === 'file') {
+        npmInstallationCommand = `file://${driverName}`;
+      } else if (source === 'npm') {
+        npmInstallationCommand = driverName;
+      } else {
+        this.errorAndThrow(`Unknown source type '${source}'. Supported source types are: [git, file, npm]`);
+      }
+    }
+
+    this.logger.info(`Installing '${npmInstallationCommand}' via npm`);
+    await this.execYarn(['add', npmInstallationCommand]);
     const installedDrivers = this.getInstalledDrivers();
-    const pkg = helpers.getInstallCommand(driverName.toLowerCase(), source);
     installedDrivers[driverName] = {
-      package: pkg,
+      package: npmInstallationCommand,
       source,
     };
     await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
-    this.logger.info(`Installing package: ${pkg}`);
-    await this.execYarn(['add', pkg]);
+    this.logger.info(`Installation successful. '${driverName}' is now available via automationName '${driverName}`);
   }
 
   /**
    * Uninstall all Appium drivers
    */
   async clean () {
-    this.logger.info(`Removing all drivers`);
+    this.logger.info(`Uninstalling all drivers`);
     await fs.rimraf(path.resolve(helpers.appiumDriversPath));
     await fs.copyFile(helpers.appiumDriversBasePath, helpers.appiumDriversPath);
-    this.logger.info(`Drivers successfully removed`);
+    this.logger.info(`All drivers are uninstalled`);
+  }
+
+  errorAndThrow (message) {
+    this.logger.error(message);
+    throw new Error(message);
   }
 
   getInstalledDrivers () {

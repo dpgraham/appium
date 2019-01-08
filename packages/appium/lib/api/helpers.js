@@ -3,9 +3,6 @@ import path from 'path';
 import { SubProcess } from 'teen_process';
 import B from 'bluebird';
 import _ from 'lodash';
-import supportedDrivers from '../supported-drivers';
-
-const log = logger.getLogger('Appium');
 
 const helpers = {};
 
@@ -31,27 +28,6 @@ helpers.execYarn = async function (commandArgs, verbose) {
     });
     await yarnProcess.start();
   });
-};
-
-helpers.getInstallCommand = function (driverName, source) {
-  if (_.isUndefined(source)) {
-    const appiumDriver = supportedDrivers[driverName];
-    if (!appiumDriver) {
-      log.errorAndThrow(`Could not find supported driver: ${driverName}. Supported drivers are: [${_.keys(supportedDrivers).join(', ')}]`);
-    }
-    return appiumDriver.package;
-  } else {
-    source = source.toLowerCase();
-    if (source === 'git') {
-      return `git://${driverName}`;
-    } else if (source === 'file') {
-      return `file://${driverName}`;
-    } else if (source === 'npm') {
-      return driverName;
-    } else {
-      throw new Error(`Unknown source type '${source}'. Supported source types are: [git, file, npm]`);
-    }
-  }
 };
 
 helpers.checkDriversDirIsReady = async function () {
