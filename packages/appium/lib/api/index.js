@@ -48,14 +48,18 @@ class API {
           this.errorAndThrow(`Could not find npm package at local path '${driverName}'`);
         }
         npmInstallationCommand = `file://${driverName}`;
-        automationName = require(path.resolve(path.resolve(driverName, 'package.json'))).name;
+        const pkgJSON = require(path.resolve(path.resolve(driverName, 'package.json')));
+        automationName = pkgJSON.name;
+        version = pkgJSON.version;
       } else if (source === 'npm') {
         // Install as NPM package
         try {
-          const res = await helpers.execYarnJSON(['info', driverName]);
-          const name = res.data.name;
-          npmInstallationCommand = name;
-          automationName = name;
+          npmInstallationCommand = driverName;
+
+          // Get info about the package before installing it
+          const res = await helpers.execYarnJSON(['info', npmInstallationCommand]);
+          automationName = res.data.name;
+          version = res.data.version;
         } catch (e) {
           this.logger.error(e.message);
           this.errorAndThrow(`Could not find npm package '${driverName}'`);
@@ -74,8 +78,11 @@ class API {
     installedDrivers[automationName] = {
       packageName: npmInstallationCommand,
       source,
+      version,
     };
     await fs.writeFile(helpers.driversJsonPath, jsonFormat(installedDrivers));
+
+    // Log that it was successful and exit
     this.logger.info(`Installation successful. '${driverName}' is now available via automationName '${automationName}'`);
   }
 
