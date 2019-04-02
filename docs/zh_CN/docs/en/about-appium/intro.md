@@ -1,19 +1,19 @@
-## Introduction to Appium
+## Appium 介绍
 
-Appium is an open-source tool for automating native, mobile web, and hybrid applications on iOS mobile, Android mobile, and Windows desktop platforms. **Native apps** are those written using the iOS, Android, or Windows SDKs. **Mobile web apps** are web apps accessed using a mobile browser (Appium supports Safari on iOS and Chrome or the built-in 'Browser' app on Android). **Hybrid apps** have a wrapper around a "webview" -- a native control that enables interaction with web content. Projects like [Phonegap](http://phonegap.com/), make it easy to build apps using web technologies that are then bundled into a native wrapper, creating a hybrid app.
+Appium 是一个开源工具，用于自动化 iOS 手机 、 Android 手机和 Windows 桌面平台上的原生、移动 Web 和混合应用。 **原生应用**指那些用 iOS 、 Android 或者 Windows SDK 编写的应用。 **移动 web 应用**是用移动端浏览器访问的应用（Appium 支持 iOS 上的 Safari 、Chrome 和 Android 上的内置浏览器）。 **混合应用**带有一个 "webview" 的包装器——用来和 Web 内容交互的原生控件。 类似 [Phonegap](http://phonegap.com/) 的项目，让用 Web 技术开发然后打包进原生包装器创建一个混合应用变得容易了。
 
-Importantly, Appium is "cross-platform": it allows you to write tests against multiple platforms (iOS, Android, Windows), using the same API. This enables code reuse between iOS, Android, and Windows testsuites.
+重要的是, Appium 是 "跨平台": 它允许您使用相同的 API 对 多个平台 (iOS、Android、Windows) 进行测试。 这将在 iOS、Android 和 Windows 测试套件之间实现 代码重用。
 
-For specific information about what it means for Appium to "support" its platforms, and automation modalities, please see the [platform support doc](/docs/en/about-appium/platform-support.md).
+了解 Appium “支持”这些平台意味着什么、有哪些自动化方式的详细信息，请参见 [Appium 支持的平台](/docs/en/about-appium/platform-support.md)。
 
-### Appium Philosophy
+### Appium 哲学理念
 
-Appium was designed to meet mobile automation needs according to a philosophy outlined by the following four tenets:
+该应用程序旨在根据以下四项原则概述的满足移动自动化需要：
 
-1. You shouldn't have to recompile your app or modify it in any way in order to automate it.
-2. You shouldn't be locked into a specific language or framework to write and run your tests.
-3. A mobile automation framework shouldn't reinvent the wheel when it comes to automation APIs.
-4. A mobile automation framework should be open source, in spirit and practice as well as in name!
+1. 你没有必要为了自动化而重新编译你的应用或者以任何方式修改它。
+2. 你不应该被限制在特定的语言或框架上来编写运行测试。
+3. 移动端自动化框架在自动化接口方面不应该重造轮子。
+4. 移动端自动化框架应该开源，不但在名义上而且在精神和实践上都要实至名归。
 
 ### Appium Design
 
