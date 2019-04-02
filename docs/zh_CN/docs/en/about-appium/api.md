@@ -5,10 +5,10 @@
 
 <ul>
     <li>
-      <a href='/docs/en/commands/status.md'>状态</a>
+      <a href='/docs/en/commands/status.md'>Status</a>
     </li>
     <li>
-      会话<ul>    <li>
+      Session<ul>    <li>
       <a href='/docs/en/commands/session/create.md'>创建</a>
     </li>
     <li>
@@ -81,9 +81,9 @@
   </li></ul> </li> 
   
   <li>
-    设备<ul>
+    Device<ul>
       <li>
-        活动<ul>
+        Activity<ul>
           <li>
             <a href='/docs/en/commands/device/activity/start-activity.md'>开始活动</a>
           </li>
@@ -96,7 +96,7 @@
         </ul>
       </li>
       <li>
-        应用程序<ul>
+        App<ul>
           <li>
             <a href='/docs/en/commands/device/app/install-app.md'>安装应用程序</a>
           </li>
@@ -127,7 +127,7 @@
         </ul>
       </li>
       <li>
-        文件<ul>
+        Files<ul>
           <li>
             <a href='/docs/en/commands/device/files/push-file.md'>推送文件</a>
           </li>
@@ -180,58 +180,58 @@
             <a href='/docs/en/commands/device/network/toggle-airplane-mode.md'>切换飞行模式</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/toggle-data.md'>Toggle Data</a>
+            <a href='/docs/en/commands/device/network/toggle-data.md'>切换数据模式</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/toggle-wifi.md'>Toggle WiFi</a>
+            <a href='/docs/en/commands/device/network/toggle-wifi.md'>切换无线网络</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/toggle-location-services.md'>Toggle Location Services</a>
+            <a href='/docs/en/commands/device/network/toggle-location-services.md'>切换定位服务</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/send-sms.md'>Send SMS</a>
+            <a href='/docs/en/commands/device/network/send-sms.md'>发送短信</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/gsm-call.md'>GSM Call</a>
+            <a href='/docs/en/commands/device/network/gsm-call.md'>GSM 呼叫</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/gsm-signal.md'>GSM Signal</a>
+            <a href='/docs/en/commands/device/network/gsm-signal.md'>GSM 信号</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/network/gsm-voice.md'>GSM Voice</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        Performance Data<ul>
-          <li>
-            <a href='/docs/en/commands/device/performance-data/get-performance-data.md'>Get Performance Data</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/device/performance-data/performance-data-types.md'>Performance Data Types</a>
+            <a href='/docs/en/commands/device/network/gsm-voice.md'>GSM 语音</a>
           </li>
         </ul>
       </li>
       <li>
-        Simulator<ul>
+        性能数据<ul>
           <li>
-            <a href='/docs/en/commands/device/simulator/touch-id.md'>Perform Touch ID</a>
+            <a href='/docs/en/commands/device/performance-data/get-performance-data.md'>获取性能数据</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/simulator/toggle-touch-id-enrollment.md'>Toggle Touch ID Enrollment</a>
+            <a href='/docs/en/commands/device/performance-data/performance-data-types.md'>性能数据类型</a>
           </li>
         </ul>
       </li>
       <li>
-        System<ul>
+        触摸<ul>
           <li>
-            <a href='/docs/en/commands/device/system/open-notifications.md'>Open Notifications</a>
+            <a href='/docs/en/commands/device/simulator/touch-id.md'>执行触摸ID</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/system/system-bars.md'>System Bars</a>
+            <a href='/docs/en/commands/device/simulator/toggle-touch-id-enrollment.md'>切换触摸 ID 注册</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        系统<ul>
+          <li>
+            <a href='/docs/en/commands/device/system/open-notifications.md'>打开通知</a>
           </li>
           <li>
-            <a href='/docs/en/commands/device/system/system-time.md'>System Time</a>
+            <a href='/docs/en/commands/device/system/system-bars.md'>系统栏</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/device/system/system-time.md'>系统时间</a>
           </li>
         </ul>
       </li>
@@ -241,143 +241,71 @@
   <li>
     Element<ul>
       <li>
-        <a href='/docs/en/commands/element/find-element.md'>Find Element</a>
+        <a href='/docs/en/commands/element/find-element.md'>查找元素</a>
       </li>
       <li>
-        <a href='/docs/en/commands/element/find-elements.md'>Find Elements</a>
+        <a href='/docs/en/commands/element/find-elements.md'>查找多个元素</a>
       </li>
       <li>
         Actions<ul>
           <li>
-            <a href='/docs/en/commands/element/actions/click.md'>Click</a>
+            <a href='/docs/en/commands/element/actions/click.md'>点击</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/actions/send-keys.md'>Send Keys</a>
+            <a href='/docs/en/commands/element/actions/send-keys.md'>发送按键</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/actions/clear.md'>Clear</a>
+            <a href='/docs/en/commands/element/actions/clear.md'>清除</a>
           </li>
         </ul>
       </li>
       <li>
-        Attributes<ul>
+        属性<ul>
           <li>
-            <a href='/docs/en/commands/element/attributes/text.md'>Text</a>
+            <a href='/docs/en/commands/element/attributes/text.md'>文本</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/name.md'>Name</a>
+            <a href='/docs/en/commands/element/attributes/name.md'>名称</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/attribute.md'>Attribute</a>
+            <a href='/docs/en/commands/element/attributes/attribute.md'>属性</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/selected.md'>Selected</a>
+            <a href='/docs/en/commands/element/attributes/selected.md'>选择状态</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/enabled.md'>Enabled</a>
+            <a href='/docs/en/commands/element/attributes/enabled.md'>启用</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/enabled.md'>Displayed</a>
+            <a href='/docs/en/commands/element/attributes/enabled.md'>显示</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/location.md'>Location</a>
+            <a href='/docs/en/commands/element/attributes/location.md'>位置</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/size.md'>Size</a>
+            <a href='/docs/en/commands/element/attributes/size.md'>大小</a>
           </li>
           <li>
             <a href='/docs/en/commands/element/attributes/rect.md'>Rect</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/css-property.md'>CSS Property</a>
+            <a href='/docs/en/commands/element/attributes/css-property.md'>CSS 属性</a>
           </li>
           <li>
-            <a href='/docs/en/commands/element/attributes/location-in-view.md'>Location in View</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        Other<ul>
-          <li>
-            <a href='/docs/en/commands/element/other/submit.md'>Submit</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/element/other/active.md'>Active Element</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/element/other/equals-element.md'>Equals Element</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    Context<ul>
-      <li>
-        <a href='/docs/en/commands/context/get-context.md'>Get Context</a>
-      </li>
-      <li>
-        <a href='/docs/en/commands/context/get-contexts.md'>Get All Contexts</a>
-      </li>
-      <li>
-        <a href='/docs/en/commands/context/set-context.md'>Set Context</a>
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    Interactions<ul>
-      <li>
-        Mouse<ul>
-          <li>
-            <a href='/docs/en/commands/interactions/mouse/moveto.md'>Move To</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/mouse/click.md'>Click</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/mouse/doubleclick.md'>Double Click</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/mouse/button-down.md'>Button Down</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/mouse/button-up.md'>Button Up</a>
+            <a href='/docs/en/commands/element/attributes/location-in-view.md'>视图中的位置</a>
           </li>
         </ul>
       </li>
       <li>
-        Touch<ul>
+        其他<ul>
           <li>
-            <a href='/docs/en/commands/interactions/touch/tap.md'>Single Tap</a>
+            <a href='/docs/en/commands/element/other/submit.md'>提交</a>
           </li>
           <li>
-            <a href='/docs/en/commands/interactions/touch/double-tap.md'>Double Tap</a>
+            <a href='/docs/en/commands/element/other/active.md'>活动元素</a>
           </li>
           <li>
-            <a href='/docs/en/commands/interactions/touch/move.md'>Move</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/touch-down.md'>Touch Down</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/touch-up.md'>Touch Up</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/long-press.md'>Long Press</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/scroll.md'>Scroll</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/flick.md'>Flick</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/multi-touch-perform.md'>Multi Touch Perform</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/interactions/touch/touch-perform.md'>Touch Perform</a>
+            <a href='/docs/en/commands/element/other/equals-element.md'>元素相等</a>
           </li>
         </ul>
       </li>
@@ -385,91 +313,163 @@
   </li>
   
   <li>
-    Web<ul>
+    上下文<ul>
       <li>
-        Window<ul>
+        <a href='/docs/en/commands/context/get-context.md'>获取上下文</a>
+      </li>
+      <li>
+        <a href='/docs/en/commands/context/get-contexts.md'>获取所有上下文</a>
+      </li>
+      <li>
+        <a href='/docs/en/commands/context/set-context.md'>设置上下文</a>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    交互<ul>
+      <li>
+        鼠标<ul>
           <li>
-            <a href='/docs/en/commands/web/window/set-window.md'>Set Window</a>
+            <a href='/docs/en/commands/interactions/mouse/moveto.md'>移动到</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/window/close-window.md'>Close Window</a>
+            <a href='/docs/en/commands/interactions/mouse/click.md'>点击</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/window/get-handle.md'>Get Handle</a>
+            <a href='/docs/en/commands/interactions/mouse/doubleclick.md'>双击</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/window/get-handles.md'>Get Handles</a>
+            <a href='/docs/en/commands/interactions/mouse/button-down.md'>按钮按下</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/window/title.md'>Get Title</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/web/window/get-window-size.md'>Get Window Size</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/web/window/set-window-size.md'>Set Window Size</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/web/window/get-window-position.md'>Get Window Position</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/web/window/set-window-position.md'>Set Window Position</a>
-          </li>
-          <li>
-            <a href='/docs/en/commands/web/window/maximize-window.md'>Maximize Window</a>
+            <a href='/docs/en/commands/interactions/mouse/button-up.md'>按钮抬起</a>
           </li>
         </ul>
       </li>
       <li>
-        Navigation<ul>
+        触摸<ul>
           <li>
-            <a href='/docs/en/commands/web/navigation/go-to-url.md'>Go to URL</a>
+            <a href='/docs/en/commands/interactions/touch/tap.md'>单点点击</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/navigation/url.md'>Get URL</a>
+            <a href='/docs/en/commands/interactions/touch/double-tap.md'>双击点击</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/navigation/back.md'>Back</a>
+            <a href='/docs/en/commands/interactions/touch/move.md'>移动</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/navigation/forward.md'>Forward</a>
+            <a href='/docs/en/commands/interactions/touch/touch-down.md'>触摸按下</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/navigation/refresh.md'>Refresh</a>
+            <a href='/docs/en/commands/interactions/touch/touch-up.md'>触摸抬起</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/interactions/touch/long-press.md'>长按</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/interactions/touch/scroll.md'>滚动</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/interactions/touch/flick.md'>翻转</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/interactions/touch/multi-touch-perform.md'>多触摸执行</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/interactions/touch/touch-perform.md'>触摸执行</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    网页<ul>
+      <li>
+        窗口<ul>
+          <li>
+            <a href='/docs/en/commands/web/window/set-window.md'>设置窗口</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/close-window.md'>关闭窗口</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/get-handle.md'>获取句柄</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/get-handles.md'>获取所有句柄</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/title.md'>获取标题</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/get-window-size.md'>获取窗口大小</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/set-window-size.md'>设置窗口大小</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/get-window-position.md'>获取窗口位置</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/set-window-position.md'>设置窗口位置</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/window/maximize-window.md'>最大化窗口</a>
           </li>
         </ul>
       </li>
       <li>
-        Storage<ul>
+        导航<ul>
           <li>
-            <a href='/docs/en/commands/web/storage/get-all-cookies.md'>Get All Cookies</a>
+            <a href='/docs/en/commands/web/navigation/go-to-url.md'>转到 URL</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/storage/set-cookie.md'>Set Cookie</a>
+            <a href='/docs/en/commands/web/navigation/url.md'>获取 URL</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/storage/delete-cookie.md'>Delete Cookie</a>
+            <a href='/docs/en/commands/web/navigation/back.md'>返回</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/storage/delete-all-cookies.md'>Delete All Cookies</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        Frame<ul>
-          <li>
-            <a href='/docs/en/commands/web/frame/switch.md'>Switch to Frame</a>
+            <a href='/docs/en/commands/web/navigation/forward.md'>向前</a>
           </li>
           <li>
-            <a href='/docs/en/commands/web/frame/parent.md'>Switch to Parent Frame</a>
+            <a href='/docs/en/commands/web/navigation/refresh.md'>刷新</a>
           </li>
         </ul>
       </li>
       <li>
-        <a href='/docs/en/commands/web/execute-async.md'>Execute Async</a>
+        存储<ul>
+          <li>
+            <a href='/docs/en/commands/web/storage/get-all-cookies.md'>获取所有 Cookie</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/storage/set-cookie.md'>设置 Cookie</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/storage/delete-cookie.md'>删除 Cookie</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/storage/delete-all-cookies.md'>删除所有 Cookie</a>
+          </li>
+        </ul>
       </li>
       <li>
-        <a href='/docs/en/commands/web/execute.md'>Execute</a>
+        框架<ul>
+          <li>
+            <a href='/docs/en/commands/web/frame/switch.md'>切换到框架</a>
+          </li>
+          <li>
+            <a href='/docs/en/commands/web/frame/parent.md'>切换到父框架</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href='/docs/en/commands/web/execute-async.md'>执行异步脚本</a>
+      </li>
+      <li>
+        <a href='/docs/en/commands/web/execute.md'>执行脚本</a>
       </li>
     </ul>
   </li></ul>
