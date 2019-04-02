@@ -15,15 +15,15 @@ Appium 是一个开源工具，用于自动化 iOS 手机 、 Android 手机和 
 3. 移动端自动化框架在自动化接口方面不应该重造轮子。
 4. 移动端自动化框架应该开源，不但在名义上而且在精神和实践上都要实至名归。
 
-### Appium Design
+### Appium 设计理念
 
-So how does the structure of the Appium project live out this philosophy? We meet requirement #1 by using vendor-provided automation frameworks under the hood. That way, we don't need to compile in any Appium-specific or third-party code or frameworks to your app. This means **you're testing the same app you're shipping**. The vendor-provided frameworks we use are:
+那么 Appium 项目的架构如何实现这一理念呢？ 为了实现第一点要求，我们其实使用了系统自带的自动化框架。 这样，我们不需要把 Appium 特定的或者第三方的代码编译进你的应用。这意味着**你测试使用的应用与最终发布的应用并无二致**。 我们使用以下系统自带的自动化框架：
 
-* iOS 9.3 and above: Apple's [XCUITest](https://developer.apple.com/reference/xctest)
-* iOS 9.3 and lower: Apple's [UIAutomation](https://developer.apple.com/library/ios/documentation/DeveloperTools/Reference/UIAutomationRef/)
-* Android 4.2+: Google's [UiAutomator/UiAutomator2](http://developer.android.com/tools/help/uiautomator/index.html)
-* Android 2.3+: Google's [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). (Instrumentation support is provided by bundling a separate project, [Selendroid](http://selendroid.io))
-* Windows: Microsoft's [WinAppDriver](http://github.com/microsoft/winappdriver)
+* iOS 9.3 及以上：苹果的 [XCUITest](https://developer.apple.com/reference/xctest)
+* iOS 9.3 及以下：苹果的 [UIAutomation](https://developer.apple.com/library/ios/documentation/DeveloperTools/Reference/UIAutomationRef/)
+* Android 4.2+: 谷歌的 [UiAutomator/UiAutomator2](http://developer.android.com/tools/help/uiautomator/index.html)
+* Android 2.3+: 谷歌的 [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). （通过绑定另外的项目—— [Selendroid](http://selendroid.io) 提供 Instrumentation 的支持）
+* Windows: 微软的 [WinAppDriver](http://github.com/microsoft/winappdriver)
 
 We meet requirement #2 by wrapping the vendor-provided frameworks in one API, the [WebDriver](http://docs.seleniumhq.org/projects/webdriver/) API. WebDriver (aka "Selenium WebDriver") specifies a client-server protocol (known as the [JSON Wire Protocol](https://w3c.github.io/webdriver/webdriver-spec.html)). Given this client-server architecture, a client written in any language can be used to send the appropriate HTTP requests to the server. There are already [clients written in every popular programming language](http://appium.io/downloads). This also means that you're free to use whatever test runner and test framework you want; the client libraries are simply HTTP clients and can be mixed into your code any way you please. In other words, Appium & WebDriver clients are not technically "test frameworks" -- they are "automation libraries". You can manage your test environment any way you like!
 
