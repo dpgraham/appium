@@ -1,12 +1,12 @@
-## List of client libraries with Appium server support
+## 支持 Appium 服务器的客户端程序库列表
 
-These libraries wrap standard Selenium client libraries to provide all the regular selenium commands dictated by the [JSON Wire protocol](https://w3c.github.io/webdriver/webdriver-spec.html), and add extra commands related to controlling mobile devices, such as **multi-touch gestures** and **screen orientation**.
+这些库封装了标准的 Selenium 客户端，提供了所有[JSON Wire protocol](https://w3c.github.io/webdriver/webdriver-spec.html)指定的常规 selenium 命令，额外添加操控移动设备相关的命令，例如 **多触摸手势**和**屏幕方向**。
 
-Appium client libraries implement the [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md) (an official draft extension to the standard protocol), and elements of the [W3C Webdriver spec](https://dvcs.w3.org/hg/webdriver/raw-file/default/webdriver-spec.html) (a transport-agnostic automation spec; this is where the MultiAction API is defined).
+Appium 客户端程序库实现了 [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md)（一个基于标准官方协议的扩展草案）和 [W3C Webdriver 规格](https://dvcs.w3.org/hg/webdriver/raw-file/default/webdriver-spec.html)（一个无关传输的自动化规格；定义 MultiAction API 的地方）中的元素。
 
-The Appium server itself defines custom extensions to the official protocols, giving Appium users helpful access to various device behaviors (such as installing/uninstalling apps during the course of a test session). This is why we need Appium-specific clients, not just the 'vanilla' Selenium clients. Of course, Appium client libraries only **add** functionality (in fact, they simply extend the standard Selenium clients), so they can still be used to run regular Selenium sessions.
+Appium 服务端自定义了基于官方协议的扩展，帮助 Appium 用户使用各种设备操作（例如在测试会话过程中安装/卸载应用）。 这就是为什么我们需要 Appium 特定的客户端，而不只是“原味”的 Selenium 客户端。 当然，Appium 客户端程序库只增加功能（其实它们只是扩展了标准 Selenium 客户端），所以它们仍然适用于常规的 Selenium 会话。
 
-| Language/Framework   | Github Repo and Installation Instructions                    |
+| 语言/框架                | Github 仓库和安装指南                                               |
 | -------------------- | ------------------------------------------------------------ |
 | Ruby                 | <https://github.com/appium/ruby_lib>                         |
 | Python               | <https://github.com/appium/python-client>                    |
