@@ -37,10 +37,10 @@ Appium 是一款开源工具,，用于自动化 iOS、Android 和 Windows 桌面
 Appium的核心是一个公开 REST API 的 Web 服务器。 它接收来自客户机的连接，侦听命令，在移动设备上执行这些命令，并使用表示命令执行结果的HTTP响应进行响应。 客户端/服务器架构实际给予了许多可能性：我们可以使用任何有 http 客户端 API 的语言编写我们的测试代码，但是使用[Appium 客户端程序库](http://appium.io/downloads)更容易。 我们可以将服务器放在不同于运行测试的机器上。 我们可以编写测试代码，并依靠类似 [Sauce Labs](https://saucelabs.com/mobile) 的云服务接收和解释命令。
 
 **会话（session）**  
-自动化始终在一个会话的上下文中执行， Clients initiate a session with a server in ways specific to each library, but they all end up sending a `POST /session` request to the server, with a JSON object called the 'desired capabilities' object. At this point the server will start up the automation session and respond with a session ID which is used for sending further commands.
+自动化始终在一个会话的上下文中执行， 客户端以特定于每个库的方式与服务器初始化会话，但最终它们都向服务器发送一个`POST /session`请求，并包含一个名为“desired capabilities”（所需功能）对象的 JSON 对象。 这时服务器就会开启这个自动化会话，并返回一个用于发送后续命令的会话 ID。
 
 **Desired Capabilities**  
-Desired capabilities are a set of keys and values (i.e., a map or hash) sent to the Appium server to tell the server what kind of automation session we're interested in starting up. There are also various capabilities which can modify the behavior of the server during automation. For example, we might set the `platformName` capability to `iOS` to tell Appium that we want an iOS session, rather than an Android or Windows one. Or we might set the `safariAllowPopups` capability to `true` in order to ensure that, during a Safari automation session, we're allowed to use JavaScript to open up new windows. See the [capabilities doc](/docs/en/writing-running-appium/caps.md) for the complete list of capabilities available for Appium.
+Desired capabilities 是一些发送给 Appium 服务器的键值对集合 (比如 map 或 hash），告诉服务器我们想要启动什么类型的自动化会话。 还有多种 capabilities 可以在自动化过程中修改服务器的行为。 例如，我们可以把 `platformName` capability 设置为 `iOS`，告诉 Appium 我们想要 iOS 会话，而不是 Android 或者 Windows 会话。 Or we might set the `safariAllowPopups` capability to `true` in order to ensure that, during a Safari automation session, we're allowed to use JavaScript to open up new windows. See the [capabilities doc](/docs/en/writing-running-appium/caps.md) for the complete list of capabilities available for Appium.
 
 **Appium Server**  
 Appium is a server written in Node.js. It can be built and installed [from source](/docs/en/contributing-to-appium/appium-from-source.md) or installed directly from NPM:
