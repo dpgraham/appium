@@ -1,6 +1,6 @@
-## Appium 介绍
+## Appium 简介
 
-Appium 是一个开源工具，用于自动化 iOS 手机 、 Android 手机和 Windows 桌面平台上的原生、移动 Web 和混合应用。 **原生应用**指那些用 iOS 、 Android 或者 Windows SDK 编写的应用。 **移动 web 应用**是用移动端浏览器访问的应用（Appium 支持 iOS 上的 Safari 、Chrome 和 Android 上的内置浏览器）。 **混合应用**带有一个 "webview" 的包装器——用来和 Web 内容交互的原生控件。 类似 [Phonegap](http://phonegap.com/) 的项目，让用 Web 技术开发然后打包进原生包装器创建一个混合应用变得容易了。
+Appium is an open-source tool for automating native, mobile web, and hybrid applications on iOS mobile, Android mobile, and Windows desktop platforms. **原生应用**指那些用 iOS 、 Android 或者 Windows SDK 编写的应用。 **移动 web 应用**是用移动端浏览器访问的应用（Appium 支持 iOS 上的 Safari 、Chrome 和 Android 上的内置浏览器）。 **混合应用**带有一个 "webview" 的包装器——用来和 Web 内容交互的原生控件。 类似 [Phonegap](http://phonegap.com/) 的项目，让用 Web 技术开发然后打包进原生包装器创建一个混合应用变得容易了。
 
 重要的是, Appium 是 "跨平台": 它允许您使用相同的 API 对 多个平台 (iOS、Android、Windows) 进行测试。 这将在 iOS、Android 和 Windows 测试套件之间实现 代码重用。
 
