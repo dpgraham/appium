@@ -1,6 +1,6 @@
 ## Appium 简介
 
-Appium is an open-source tool for automating native, mobile web, and hybrid applications on iOS mobile, Android mobile, and Windows desktop platforms. **原生应用**指那些用 iOS 、 Android 或者 Windows SDK 编写的应用。 **移动 web 应用**是用移动端浏览器访问的应用（Appium 支持 iOS 上的 Safari 、Chrome 和 Android 上的内置浏览器）。 **混合应用**带有一个 "webview" 的包装器——用来和 Web 内容交互的原生控件。 类似 [Phonegap](http://phonegap.com/) 的项目，让用 Web 技术开发然后打包进原生包装器创建一个混合应用变得容易了。
+Appium 是一款开源工具,，用于自动化 iOS、Android 和 Windows 桌面平台上的原生、web 和混合应用程序。 **原生应用**指那些用 iOS 、 Android 或者 Windows SDK 编写的应用程序。 **web 应用程序**是指使用移动端浏览器访问的应用（Appuium 支持 iOS 、 Chrome 或 Android 上构建的“浏览器”应用）。 **混合应用**带有一个 "webview" 的包装器——用来和 Web 内容交互的原生控件。 类似 [Phonegap](http://phonegap.com/) 的项目，让用 Web 技术开发然后打包进原生包装器创建一个混合应用变得容易了。
 
 重要的是, Appium 是 "跨平台": 它允许您使用相同的 API 对 多个平台 (iOS、Android、Windows) 进行测试。 这将在 iOS、Android 和 Windows 测试套件之间实现 代码重用。
 
@@ -25,7 +25,7 @@ Appium is an open-source tool for automating native, mobile web, and hybrid appl
 * Android 2.3+: 谷歌的 [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). （通过绑定另外的项目—— [Selendroid](http://selendroid.io) 提供 Instrumentation 的支持）
 * Windows: 微软的 [WinAppDriver](http://github.com/microsoft/winappdriver)
 
-We meet requirement #2 by wrapping the vendor-provided frameworks in one API, the [WebDriver](http://docs.seleniumhq.org/projects/webdriver/) API. WebDriver (aka "Selenium WebDriver") specifies a client-server protocol (known as the [JSON Wire Protocol](https://w3c.github.io/webdriver/webdriver-spec.html)). Given this client-server architecture, a client written in any language can be used to send the appropriate HTTP requests to the server. There are already [clients written in every popular programming language](http://appium.io/downloads). This also means that you're free to use whatever test runner and test framework you want; the client libraries are simply HTTP clients and can be mixed into your code any way you please. In other words, Appium & WebDriver clients are not technically "test frameworks" -- they are "automation libraries". You can manage your test environment any way you like!
+为了实现第二点要求，我们把这些（系统本身的）供应商提供的框架包装进一套 API —— [WebDriver](http://docs.seleniumhq.org/projects/webdriver/) API 中。 WebDriver（也叫 "Selenium WebDriver"）规定了一个客户端-服务器协议（称为 [JSON Wire Protocol](https://w3c.github.io/webdriver/webdriver-spec.html)）， 按照这种客户端-服务器架构，可以使用任何语言编写的客户端向服务器发送适当的 HTTP 请求。 There are already [clients written in every popular programming language](http://appium.io/downloads). This also means that you're free to use whatever test runner and test framework you want; the client libraries are simply HTTP clients and can be mixed into your code any way you please. In other words, Appium & WebDriver clients are not technically "test frameworks" -- they are "automation libraries". You can manage your test environment any way you like!
 
 We meet requirement #3 in the same way: WebDriver has become the de facto standard for automating web browsers, and is a [W3C Working Draft](https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html). Why do something totally different for mobile? Instead we have [extended the protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md) with extra API methods useful for mobile automation.
 
