@@ -25,19 +25,19 @@ Appium 是一款开源工具,，用于自动化 iOS、Android 和 Windows 桌面
 * Android 2.3+: 谷歌的 [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html). （通过绑定另外的项目—— [Selendroid](http://selendroid.io) 提供 Instrumentation 的支持）
 * Windows: 微软的 [WinAppDriver](http://github.com/microsoft/winappdriver)
 
-为了实现第二点要求，我们把这些（系统本身的）供应商提供的框架包装进一套 API —— [WebDriver](http://docs.seleniumhq.org/projects/webdriver/) API 中。 WebDriver（也叫 "Selenium WebDriver"）规定了一个客户端-服务器协议（称为 [JSON Wire Protocol](https://w3c.github.io/webdriver/webdriver-spec.html)）， 按照这种客户端-服务器架构，可以使用任何语言编写的客户端向服务器发送适当的 HTTP 请求。 There are already [clients written in every popular programming language](http://appium.io/downloads). This also means that you're free to use whatever test runner and test framework you want; the client libraries are simply HTTP clients and can be mixed into your code any way you please. In other words, Appium & WebDriver clients are not technically "test frameworks" -- they are "automation libraries". You can manage your test environment any way you like!
+为了实现第二点要求，我们把这些（系统本身的）供应商提供的框架包装进一套 API —— [WebDriver](http://docs.seleniumhq.org/projects/webdriver/) API 中。 WebDriver（也叫 "Selenium WebDriver"）规定了一个客户端-服务器协议（称为 [JSON Wire Protocol](https://w3c.github.io/webdriver/webdriver-spec.html)）， 按照这种客户端-服务器架构，可以使用任何语言编写的客户端向服务器发送适当的 HTTP 请求。 已经有[各个流行编程语言编写的客户端](http://appium.io/downloads)了。 这也意味着你可以自由使用任何你想要的测试运行器和测试框架；客户端程序库不过是 HTTP 客户端，可以以任何你喜欢的方式混入你的代码。 换句话说，Appium & WebDriver 客户端不是严格意义上的“测试框架”，而是“自动化程序库”。 你可以以任何你喜欢的方式管理你的测试环境！
 
-We meet requirement #3 in the same way: WebDriver has become the de facto standard for automating web browsers, and is a [W3C Working Draft](https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html). Why do something totally different for mobile? Instead we have [extended the protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md) with extra API methods useful for mobile automation.
+我们以同样的方式实现第三点要求：WebDriver 已经成为 Web 浏览器自动化事实上的标准，并且是一个 [W3C 工作草案](https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html)。 何必在移动端做完全不同的尝试？ 相反，我们[扩展了协议](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md)使用额外的API方法用于移动端自动化。
 
-It should be obvious that requirement #4 is a given -- you're reading this because [Appium is open source](https://github.com/appium/appium).
+显然，第四点是肯定的，你正在读这个 因为[Appium 是开源的](https://github.com/appium/appium)。
 
-### Appium Concepts
+### Appium 概念
 
-**Client/Server Architecture**  
-Appium is at its heart a webserver that exposes a REST API. It receives connections from a client, listens for commands, executes those commands on a mobile device, and responds with an HTTP response representing the result of the command execution. The fact that we have a client/server architecture opens up a lot of possibilities: we can write our test code in any language that has a http client API, but it is easier to use one of the [Appium client libraries](http://appium.io/downloads). We can put the server on a different machine than our tests are running on. We can write test code and rely on a cloud service like [Sauce Labs](https://saucelabs.com/mobile) to receive and interpret the commands.
+**客户端/服务器架构**  
+Appium的核心是一个公开 REST API 的 Web 服务器。 它接收来自客户机的连接，侦听命令，在移动设备上执行这些命令，并使用表示命令执行结果的HTTP响应进行响应。 客户端/服务器架构实际给予了许多可能性：我们可以使用任何有 http 客户端 API 的语言编写我们的测试代码，但是使用[Appium 客户端程序库](http://appium.io/downloads)更容易。 我们可以将服务器放在不同于运行测试的机器上。 我们可以编写测试代码，并依靠类似 [Sauce Labs](https://saucelabs.com/mobile) 的云服务接收和解释命令。
 
-**Session**  
-Automation is always performed in the context of a session. Clients initiate a session with a server in ways specific to each library, but they all end up sending a `POST /session` request to the server, with a JSON object called the 'desired capabilities' object. At this point the server will start up the automation session and respond with a session ID which is used for sending further commands.
+**会话（session）**  
+自动化始终在一个会话的上下文中执行， Clients initiate a session with a server in ways specific to each library, but they all end up sending a `POST /session` request to the server, with a JSON object called the 'desired capabilities' object. At this point the server will start up the automation session and respond with a session ID which is used for sending further commands.
 
 **Desired Capabilities**  
 Desired capabilities are a set of keys and values (i.e., a map or hash) sent to the Appium server to tell the server what kind of automation session we're interested in starting up. There are also various capabilities which can modify the behavior of the server during automation. For example, we might set the `platformName` capability to `iOS` to tell Appium that we want an iOS session, rather than an Android or Windows one. Or we might set the `safariAllowPopups` capability to `true` in order to ensure that, during a Safari automation session, we're allowed to use JavaScript to open up new windows. See the [capabilities doc](/docs/en/writing-running-appium/caps.md) for the complete list of capabilities available for Appium.
