@@ -31,7 +31,8 @@ example_usage:
       // PHP Code here
   csharp:
     |
-      // CSharp Code here
+      driver.GetClipboard(ClipboardContentType.PlainText);
+      driver.GetClipboard();
 
 client_docs:
   java: "https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#click--"

@@ -30,7 +30,8 @@ example_usage:
       // TODO PHP sample
   csharp:
     |
-      // TODO C# sample
+      driver.Unlock();
+      driver.Lock();
 
 client_docs:
   java: "http://appium.github.io/java-client/io/appium/java_client/LocksDevice.html#unlockDevice--"

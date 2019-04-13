@@ -33,7 +33,7 @@ example_usage:
       $driver->launchApp();
   csharp:
     |
-      // TODO C# sample
+      driver.LaunchApp();
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/InteractsWithApps.html#launchApp--"

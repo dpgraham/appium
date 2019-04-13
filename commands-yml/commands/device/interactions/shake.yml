@@ -27,7 +27,7 @@ example_usage:
       $driver->shake();
   csharp:
     |
-      // TODO C# sample
+      driver.ShakeDevice();
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/ios/ShakesDevice.html#shake--"

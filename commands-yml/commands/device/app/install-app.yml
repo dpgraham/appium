@@ -30,7 +30,7 @@ example_usage:
       $driver->installApp('/Users/johndoe/path/to/app.apk');
   csharp:
     |
-      // TODO C# sample
+      driver.InstallApp('/Users/johndoe/path/to/app.apk');
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/InteractsWithApps.html#installApp-java.lang.String-"

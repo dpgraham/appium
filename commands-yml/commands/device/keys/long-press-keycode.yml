@@ -28,7 +28,8 @@ example_usage:
       // TODO PHP sample
   csharp:
     |
-      // TODO C# sample
+      // android key code and metastate
+      driver.LongPressKeyCode(10, 100);
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/windows/PressesKeyCode.html#longPressKeyCode-int-"

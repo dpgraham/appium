@@ -27,7 +27,7 @@ example_usage:
       $driver->pushFile('/path/to/device/foo.bar', 'QXJlIHlvdXIgYmVlcnMgb2theT8=');
   csharp:
     |
-      // TODO C# sample
+      driver.PushFile("/path/to/device/foo.bar", new File("/Users/johndoe/files/foo.bar");
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/android/PushesFiles.html#pushFile-java.lang.String-java.io.File-"

@@ -30,7 +30,7 @@ example_usage:
                                    'appActivity' => 'ActivityName'));
   csharp:
     |
-      // TODO C# sample
+      driver.StartActivity("com.example", "ActivityName");
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/android/AndroidMobileCommandHelper.html#startActivityCommand-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-java.lang.String-boolean-"

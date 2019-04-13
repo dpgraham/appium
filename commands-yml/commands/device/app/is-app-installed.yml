@@ -30,7 +30,7 @@ example_usage:
       $driver->isAppInstalled('com.example.AppName')
   csharp:
     |
-      // TODO C# sample
+      driver.IsAppInstalled("com.example.AppName");
 
 client_docs:
   java: "https://appium.github.io/java-client/io/appium/java_client/InteractsWithApps.html#isAppInstalled-java.lang.String-"
